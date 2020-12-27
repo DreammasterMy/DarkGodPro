@@ -92,7 +92,7 @@ public static class GenConfig
         typeof(Action),
         typeof(Action<int>),
         typeof(Action<WWW>),
-        typeof(Callback),
+        //typeof(Callback),
         typeof(UnityEngine.Event),
         typeof(UnityEngine.Events.UnityAction),
         typeof(System.Collections.IEnumerator),

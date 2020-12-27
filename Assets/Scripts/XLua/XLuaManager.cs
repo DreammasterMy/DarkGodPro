@@ -1,4 +1,4 @@
-using AssetBundles;
+using System;
 using System.IO;
 using UnityEngine;
 using XLua;
@@ -15,6 +15,57 @@ using XLua;
 
 public class XLuaManager : MonoSingleton<XLuaManager>
 {
+    public const string luaAssetbundleAssetName = "Lua";
+    public const string luaScriptsFolder = "LuaScripts";
+    const string commonMainScriptName = "Common.Main";
+    const string gameMainScriptName = "GameMain";
+    const string hotfixMainScriptName = "XLua.HotfixMain";
+    LuaEnv luaEnv = null;
+    LuaUpdate luaUpdate = null;
 
-    
+
+    protected override void Init()
+    {
+        base.Init();
+        //AssetBundle todo
+
+        
+    }
+
+
+    public bool HasGameStart
+    {
+        get;
+        protected set;
+    }
+
+    void InitLuaEnv()
+    {
+        luaEnv = new LuaEnv();
+        HasGameStart = false;
+        if (luaEnv != null)
+        {
+            //luaEnv.AddLoader(CustomLoader);
+            //luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadPb);
+        }
+        else
+        { 
+        
+        }
+    }
+
+//    public static byte[] CustomLoader(ref string filepath)
+//    {
+//        string scriptPath = string.Empty;
+//        filepath = filepath.Replace(".", "/") + ".lua";
+//#if UNITY_EDITOR
+//        if (AssetBundleConfig.IsEditorMode)
+//        {
+//            scriptPath = Path.Combine(Application.dataPath, luaScriptsFolder);
+//            scriptPath = Path.Combine(scriptPath, filepath);
+//            //Logger.Log("Load lua script : " + scriptPath);
+//            return GameUtility.SafeReadAllBytes(scriptPath);
+//        }
+//#endif
+//    }
 }

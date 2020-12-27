@@ -10,10 +10,10 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T :MonoSingleton<T>
         {
             if(mInstance == null)
             {
-                GameObject go  = GameObject.FindObjectOfType(typeof(T)) as T;
+                GameObject go  = FindObjectOfType(typeof(T)) as GameObject;
                 mInstance = go.AddComponent<T>();
-                GameObject parent = GameObject.FInd("Boot");
-                if(parent == nuint)
+                GameObject parent = GameObject.Find("Boot");
+                if(parent == null)
                 {
                     parent = new GameObject("Boot");
                     GameObject.DontDestroyOnLoad(parent);
@@ -42,7 +42,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T :MonoSingleton<T>
         {
             mInstance = this as T;
         }
-        DontDestoryOnLoad(gameobject);
+        DontDestroyOnLoad(gameObject);
         Init();
     }
 
